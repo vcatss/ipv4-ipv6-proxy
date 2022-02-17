@@ -49,7 +49,7 @@ $(awk -F "/" '{print $3 ":" $4 ":" $1 ":" $2 }' ${WORKDATA})
 EOF
 }
 
-upload_proxy() {
+upload_proxy1() {
     local PASS=$(random)
     zip --password $PASS proxy.zip proxy.txt
     URL=$(curl -s --upload-file proxy.zip https://transfer.sh/proxy.zip)
@@ -58,6 +58,9 @@ upload_proxy() {
     echo "Download zip archive from: ${URL}"
     echo "Password: ${PASS}"
 
+}
+upload_proxy() {
+    echo "Hello"
 }
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
